@@ -6,3 +6,4 @@ ADD Gemfile /postit/Gemfile
 ADD Gemfile.lock /postit/Gemfile.lock
 RUN bundle install
 ADD . /postit
+RUN chmod 766 /postit/lint

@@ -25,3 +25,7 @@ At this point you should be able to view the project at `localhost:3000`. Simply
 
 **Subsequent restarts:**
 - `docker-compose up`
+
+## Running the linters
+Linting of this project is composed of a set of 5 linters run in sequence: Rails Best Practices, RuboCop, Reek, Flog, Flay.  
+To run all of the linters simply call `docker-compose run web ./lint`
