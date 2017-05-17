@@ -9,5 +9,7 @@ class Post < ActiveRecord::Base
 
   validates :author, :title, :body, presence: true
 
+  delegate :display_name, to: :author, prefix: true
+
   paginates_per 5
 end

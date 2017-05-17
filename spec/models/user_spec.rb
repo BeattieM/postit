@@ -11,4 +11,12 @@ RSpec.describe User, type: :model do
   it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:last_name) }
   it { should have_many(:posts) }
+
+  describe 'display_name' do
+    subject { FactoryGirl.create(:user) }
+
+    it 'returns first and last name' do
+      expect(subject.display_name).to eq "#{subject.first_name} #{subject.last_name}"
+    end
+  end
 end
