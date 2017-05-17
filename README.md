@@ -1,6 +1,9 @@
 # PostIT
 A Ruby on Rails website developer coding practical
 
+## Demo
+A demo of this application is available here: https://gentle-spire-38369.herokuapp.com/
+
 ## Running the project
 This project utilizes the latest versions of Docker and Docker Compose. Please make sure your system is at least somewhat up to date with the most recent version of both.
 
