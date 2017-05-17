@@ -25,3 +25,12 @@ At this point you should be able to view the project at `localhost:3000`. Simply
 
 **Subsequent restarts:**
 - `docker-compose up`
+
+## Running the test
+Testing is composed of RSpec tests with coverage visible via SimpleCov.  
+
+Call `docker-compose run web rspec` to run the tests and then open up `coverage/index.html` in your browser to view the coverage results
+
+## Running the linters
+Linting of this project is composed of a set of 5 linters run in sequence: Rails Best Practices, RuboCop, Reek, Flog, Flay.  
+To run all of the linters simply call `docker-compose run web ./lint`

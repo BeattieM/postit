@@ -11,3 +11,11 @@
 /log/*
 !/log/.keep
 /tmp
+
+.DS_Store
+
+# Ignore Byebug command history file.
+.byebug_history
+
+# Ignore SimpleCov
+coverage
