@@ -29,6 +29,8 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.extend ControllerMacros, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
   config.include FeatureMacros, type: :feature
 
   config.before :suite do

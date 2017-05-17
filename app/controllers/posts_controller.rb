@@ -1,7 +1,7 @@
 # Controller for Post specific endpoints
 class PostsController < ApplicationController
   before_action :find_post_for_user, only: [:edit, :destroy]
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @posts = Post.most_recent.page params[:page]
