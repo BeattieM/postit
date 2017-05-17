@@ -1,0 +1,25 @@
+<% if post.errors.any? %>
+  <div>
+    <p>An error occured while attempting to create your Post.</p>
+    <ul>
+      <% post.errors.full_messageseach do |message| %>
+        <li>message</li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for(post) do |f| %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body, rows: 20 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>
