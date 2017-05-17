@@ -5,6 +5,6 @@ module FeatureMacros
       fill_in 'Email', with: user.email
       fill_in 'Password', with: user.password
     end
-    click_button 'Log In'
+    click_button 'Log in'
   end
 end
