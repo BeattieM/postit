@@ -17,7 +17,7 @@ body {
 #home_logo {
   font-size: 2.5em;
   font-weight: bold;
-  color: black;
+  color: #000000;
   text-decoration: none;
   padding-left: 20px;
   padding-right: 20px;
@@ -54,6 +54,24 @@ body {
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+#content-header {
+  min-height: 50px;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  border: 1px solid #e6ecf0;
+  background-color: #ffffff;
+}
+
+#content-footer {
+  height: 50px;
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+  border-left: 1px solid #e6ecf0;
+  border-right: 1px solid #e6ecf0; 
+  border-bottom: 1px solid #e6ecf0; 
+  background-color: #ffffff;
 }
 
 .btn-success {

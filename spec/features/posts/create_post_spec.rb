@@ -9,10 +9,9 @@ describe 'the create process', type: :feature do
     visit '/posts/new'
     within('.new_post') do
       fill_in 'Title', with: 'My Title'
-      fill_in 'Body', with: 'My Body'
+      fill_in 'post_body', with: 'My Body'
     end
     click_button 'Submit'
-    expect(page).to have_content 'Post was successfully created.'
 
     visit "/posts/#{Post.last.uuid}"
     expect(page).to have_content "#{user.first_name} #{user.last_name}"

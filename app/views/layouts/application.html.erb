@@ -9,6 +9,13 @@
 <body>
   <div class="banner-spacer spacer-top">
     <%= link_to('PostIT', root_path, :id => 'home_logo') %>
+    <% if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-success log-button") %>
+      <%= link_to('Profile', edit_user_registration_path, :class => "btn btn-success log-button") %>
+      <%= link_to('My Posts', my_posts_path, :class => "btn btn-success log-button") %>
+    <% else %>
+      <%= link_to('Login', new_user_session_path, :class => "btn btn-success log-button")  %>
+    <% end %>
   </div>
   <div id='content'>
     <%= yield %>

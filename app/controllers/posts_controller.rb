@@ -1,6 +1,5 @@
 # Controller for Post specific endpoints
 class PostsController < ApplicationController
-  layout "main"
   before_action :find_post_for_user, only: %i[edit destroy]
   before_action :authenticate_user!, except: %i[index show]
 
