@@ -10,10 +10,9 @@ describe 'the update process', type: :feature do
     visit "/posts/#{post.uuid}/edit"
     within('.edit_post') do
       fill_in 'Title', with: 'New Title'
-      fill_in 'Body', with: 'New Body'
+      fill_in 'post_body', with: 'New Body'
     end
     click_button 'Submit'
-    expect(page).to have_content 'Post was successfully updated.'
 
     visit "/posts/#{post.uuid}"
     expect(page).to have_content 'New Title'

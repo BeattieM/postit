@@ -1,0 +1,15 @@
+<div class='post'>
+  <div class='post-content'>
+    <%= render "post_content", post: post %>
+    <div class='post-meta'>
+      <span class='author'>by <%= post.author_display_name %> | </span>
+      <span class='date'>
+        <% if post.created_at > (Time.now-1.hour) %>
+          <%= time_ago_in_words(post.created_at) %> ago
+        <% else %>
+          <%= post.created_at.strftime("%B %e, %Y") %>
+        <% end %>
+      </span>
+    </div>
+  </div>
+</div>

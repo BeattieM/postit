@@ -12,4 +12,8 @@ class Post < ActiveRecord::Base
   delegate :display_name, to: :author, prefix: true
 
   paginates_per 5
+
+  def summary
+    body.split[0..20].join(' ')
+  end
 end

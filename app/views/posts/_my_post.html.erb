@@ -1,0 +1,18 @@
+<div class='post'>
+  <div class='post-content'>
+    <%= render "post_content", post: post %>
+    <div class='post-meta'>
+      <span class='date'>
+        <% if post.created_at > (Time.now-1.hour) %>
+          <%= time_ago_in_words(post.created_at) %> ago
+        <% else %>
+          <%= post.created_at.strftime("%B %e, %Y") %>
+        <% end %>
+      </span>
+    </div>
+    <div class='post-actions'>
+      <span class='edit'><%= link_to('Edit Post', edit_post_path(post.uuid), :class => "btn btn-success") %></span>
+      <span class='delete'><%= link_to('Delete Post', post_path(post.uuid), :method => :delete,data: {confirm: "Are you sure you wish to delete this post?"}, :class => "btn btn-success") %></span>
+    </div>
+  </div>
+</div>
