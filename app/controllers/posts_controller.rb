@@ -1,7 +1,7 @@
 # Controller for Post specific endpoints
 class PostsController < ApplicationController
-  before_action :find_post_for_user, only: [:edit, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :find_post_for_user, only: %i[edit destroy]
+  before_action :authenticate_user!, except: %i[index show]
 
   def index
     @posts = Post.most_recent.page params[:page]
@@ -23,17 +23,19 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:notice] = 'Post was successfully created.'
-      redirect_to action: "my"
+      redirect_to action: 'my'
     else
       render :new
     end
   end
 
+  def edit; end
+
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = 'Post was successfully updated.'
-      redirect_to action: "my"
+      redirect_to action: 'my'
     else
       render :edit
     end
@@ -42,7 +44,7 @@ class PostsController < ApplicationController
   def destroy
     if @post.destroy
       flash[:notice] = 'Post was successfully deleted.'
-      redirect_to action: "my"
+      redirect_to action: 'my'
     else
       render :new
     end

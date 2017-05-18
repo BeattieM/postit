@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   include UniqueId
   acts_as_paranoid
 
-  scope :most_recent, -> { order('created_at desc') }
+  scope(:most_recent, -> { order('created_at desc') })
 
   belongs_to :author, foreign_key: 'user_id', class_name: User
 

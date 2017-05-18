@@ -6,7 +6,7 @@ describe 'the create process', type: :feature do
   it 'creates a new Post' do
     sign_in_as_user(user)
 
-    visit "/posts/new"
+    visit '/posts/new'
     within('.new_post') do
       fill_in 'Title', with: 'My Title'
       fill_in 'Body', with: 'My Body'
