@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_uuid(params[:id])
-    @comment = Comment.new
+    @comment = Comment.new(post_id: @post.id)
   end
 
   def new

@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
-      redirect_to @comment.post
+      redirect_to post_url(@comment.post.uuid)
     else
       @post = @comment.post
       render 'posts/show'

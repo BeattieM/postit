@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-  // Interactions for creating new Post 
   $("#comment_body").focus(function() {
     $("#submit-comment").show();
   });
@@ -12,7 +11,9 @@ $( document ).ready(function() {
     }
   });
 
-  $("#comment_body").keyup(function(){
+  $(document).on('keyup','#comment_body',function(){
+    console.log('here');
+    console.log($(this).val());
     if($(this).val()){
       $("#submit-comment").prop("disabled",false);
     } else {
