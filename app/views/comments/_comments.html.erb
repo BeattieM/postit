@@ -1,0 +1,16 @@
+<div id='comment-header'><span>Comments</span></div>
+<div class="content-header"></div>
+<div id="comments">
+  <% if user_signed_in? %>
+     <%= render "comments/form", post_id: post_id, comment: comment %>
+     <br />
+  <% end %>
+  <% if comments.count > 0 %>
+    <% comments.each do |c| %>
+      <%= render "comments/comment", comment: c %>
+    <% end %>
+  <% else  %>
+    <p style="text-align: center;padding:15px;">There are currently no comments</p>
+  <% end %>
+</div>
+<div class="content-footer"></div>

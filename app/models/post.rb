@@ -6,12 +6,13 @@ class Post < ActiveRecord::Base
   scope(:most_recent, -> { order('created_at desc') })
 
   belongs_to :author, foreign_key: 'user_id', class_name: User
+  has_many :comments
 
   validates :author, :title, :body, presence: true
 
   delegate :display_name, to: :author, prefix: true
 
-  paginates_per 5
+  paginates_per 15
 
   def summary
     body.split[0..20].join(' ')

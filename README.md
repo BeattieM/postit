@@ -34,3 +34,7 @@ Call `docker-compose run web rspec` to run the tests and then open up `coverage/
 ## Running the linters
 Linting of this project is composed of a set of 5 linters run in sequence: Rails Best Practices, RuboCop, Reek, Flog, Flay.  
 To run all of the linters simply call `docker-compose run web ./lint`
+
+## Future improvements
+- Use more complex composer to run selenium and add feature tests that require JS
+- Allow nested comments

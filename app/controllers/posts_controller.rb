@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by_uuid(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -22,7 +23,6 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:notice] = 'Post was successfully created.'
       redirect_to action: 'my'
     else
       render :new
@@ -34,7 +34,6 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
-      flash[:notice] = 'Post was successfully updated.'
       redirect_to action: 'my'
     else
       render :edit
@@ -43,10 +42,9 @@ class PostsController < ApplicationController
 
   def destroy
     if @post.destroy
-      flash[:notice] = 'Post was successfully deleted.'
       redirect_to action: 'my'
     else
-      render :new
+      render :my
     end
   end
 
