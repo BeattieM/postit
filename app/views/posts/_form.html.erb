@@ -1,13 +1,3 @@
-<% if post.errors.any? %>
-  <div>
-    <p>An error occured while attempting to create your Post.</p>
-    <ul>
-      <% post.errors.full_messageseach do |message| %>
-        <li>message</li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
 <div class="post-create-form">
   <div id="div-forms">
     <%= form_for(post) do |f| %>
