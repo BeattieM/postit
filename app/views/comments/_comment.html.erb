@@ -1,0 +1,17 @@
+<div class='comment'>
+  <div class='comment-content'>
+    <div class='comment-meta'>
+      <span class='author'><%= comment.author_display_name %> | </span>
+      <span class='date'>
+        <% if comment.created_at > (Time.now-1.hour) %>
+          <%= time_ago_in_words(comment.created_at) %> ago
+        <% else %>
+          <%= comment.created_at.strftime("%B %e, %Y") %>
+        <% end %>
+      </span>
+    </div>
+    <div class='comment-body'>
+      <%= simple_format(comment.body) %>
+    </div>
+  </div>
+</div>

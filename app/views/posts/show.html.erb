@@ -1,4 +1,4 @@
-<div id="content-header"></div>
+<div class="content-header"></div>
 <div id="posts">
   <div class='post'>
     <div class='post-content'>
@@ -19,4 +19,5 @@
     </div>
   </div>
 </div>
-<div id="content-footer"></div>
+<div class="content-footer"></div>
+<%= render "comments/comments", post_id: @post.id, comment: @comment, comments: @post.comments %>
