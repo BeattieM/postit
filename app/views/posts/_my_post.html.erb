@@ -12,7 +12,7 @@
     </div>
     <div class='post-actions'>
       <span class='edit'><%= link_to('Edit Post', edit_post_path(post.uuid), :class => "btn btn-success") %></span>
-      <span class='delete'><%= link_to('Delete Post', post_path(post.uuid), :method => :delete,data: {confirm: "Are you sure you wish to delete this post?"}, :class => "btn btn-success") %></span>
+      <span id="delete-<%= post.uuid %>" class='delete'><%= link_to('Delete Post', post_path(post.uuid), :method => :delete,data: {confirm: "Are you sure you wish to delete this post?"}, :class => "btn btn-success") %></span>
     </div>
   </div>
 </div>

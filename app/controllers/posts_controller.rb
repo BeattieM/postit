@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     if @post.destroy
       redirect_to action: 'my'
     else
-      render :new
+      render :my
     end
   end
 
