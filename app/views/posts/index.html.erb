@@ -4,7 +4,6 @@
     <% @posts.each do |p| %>
       <%= render "post", post: p %>
     <% end %>
-    <%= paginate @posts %>
   <% else  %>
     <div class='post'>
       <div class='post-content'>
@@ -14,3 +13,4 @@
   <% end %>
 </div>
 <div class="content-footer"></div>
+<%= paginate @posts %>

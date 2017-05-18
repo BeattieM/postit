@@ -7,7 +7,7 @@ DryBundlerInCapistranoCheck: { }
 #HashSyntaxCheck: { }
 IsolateSeedDataCheck: { }
 KeepFindersOnTheirOwnModelCheck: { }
-LawOfDemeterCheck: { }
+LawOfDemeterCheck: { ignored_files: 'controllers/comments_controller.rb' }
 #LongLineCheck: { max_line_length: 80 }
 MoveCodeIntoControllerCheck: { }
 MoveCodeIntoHelperCheck: { array_count: 3 }

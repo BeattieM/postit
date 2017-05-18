@@ -2,7 +2,7 @@
 <div class='comment-content'>
   <%= form_for comment do |f| %>
     <%= f.text_area :body, placeholder: "What's on your mind?", rows: 1, required: '' %>
-    <%= f.hidden_field :post_id, value: post_id %>
+    <%= f.hidden_field :post_id, value: comment.post_id %>
     <%= f.submit :id => "submit-comment", :class => "btn btn-success", :disabled => true %>
   <% end %>
 </div>

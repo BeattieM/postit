@@ -2,7 +2,7 @@
 <div class="content-header"></div>
 <div id="comments">
   <% if user_signed_in? %>
-     <%= render "comments/form", post_id: post_id, comment: comment %>
+     <%= render "comments/form", comment: comment %>
      <br />
   <% end %>
   <% if comments.count > 0 %>

@@ -20,4 +20,4 @@
   </div>
 </div>
 <div class="content-footer"></div>
-<%= render "comments/comments", post_id: @post.id, comment: @comment, comments: @post.comments %>
+<%= render "comments/comments", comment: @comment, comments: @post.comments.oldest %>
