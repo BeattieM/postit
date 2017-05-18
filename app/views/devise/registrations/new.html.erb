@@ -1,39 +1,41 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="modal-content">
+  <div id="div-forms">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= raw devise_error_messages!.split(%r{(?<=<h2>).*(?=<\/h2>)}).join('') %>
+      <div class="modal-body">
+        <div id="div-login-msg" class="<%= flash[:alert] ? ((flash[:alert].include? 'Invalid') ? 'error' : '') : '' %>">
+          <span id="text-login-msg">
+            <%= flash[:alert] ? flash[:alert] : "" %>
+          </span>
+        </div>
+        <div class="field">
+          <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email", required: "", autocomplete: "off"%>
+        </div>
+        <br />
+        <div class="field">
+          <%= f.text_field :first_name, class: "form-control", placeholder: "First Name", required: "" %>
+        </div>
+        <br />
+        <div class="field">
+          <%= f.text_field :last_name, class: "form-control", placeholder: "Last Name", required: "" %>
+        </div>
+        <br />
+        <div class="field">
+          <%= f.password_field :password, class: "form-control", placeholder: (@minimum_password_length ? "Password (#{@minimum_password_length} characters minimum)"  : 'Password'), required: "", autocomplete: "off" %>
+        </div>
+        <br />
+        <div class="field">
+          <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password", required: "", autocomplete: "off" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="actions">
+          <%= f.submit "Sign up", class: "btn btn-success btn-lg btn-block" %>
+        </div>
+        <div>
+          <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-link" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

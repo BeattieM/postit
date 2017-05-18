@@ -1,18 +1,14 @@
-<div class="banner-spacer spacer-top">
-  <% if user_signed_in? %>
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-success") %>
-    <%= link_to('New Post', new_post_path, :class => "btn btn-success") %>
-  <% else %>
-    <%= link_to('Login', new_user_session_path, :class => "btn btn-success log-button")  %>
-  <% end %>
-</div>
 <div id="posts">
   <% if @posts.count > 0 %>
     <% @posts.each do |p| %>
-      <%= link_to(p.title, post_path(p.uuid)) %><br />
+      <%= render "post", post: p %>
     <% end %>
     <%= paginate @posts %>
   <% else  %>
-    <p>No Posts Available</p>
+    <div class='post'>
+      <div class='post-content'>
+        <div class='post-title' style='text-align: center;'>No Posts Available</div>
+      </div>
+    </div>
   <% end %>
 </div>
