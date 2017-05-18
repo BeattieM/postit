@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe 'the registration process', type: :feature do
   it 'registers a new user' do
     visit '/users/sign_up'
